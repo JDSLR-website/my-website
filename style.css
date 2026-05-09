@@ -109,11 +109,24 @@ button:hover {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5em;
-  padding: 2em;
+  grid-template-columns: repeat(3, 280px);
+  gap: 2em;
+  justify-content: center;
+  padding: 2em 1em;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 280px);
+  }
+}
+
+@media (max-width: 650px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .product {
@@ -141,7 +154,7 @@ button:hover {
 }
 
 .product h3 a:hover {
-  color: #006400; /* Dark green on hover (optional) */
+  color: #006400; /* Dark green on hover */
 }
 
 .product p {
@@ -169,13 +182,14 @@ button:hover {
   height: auto;
   display: block;
   border-radius: 8px;
+  z-index: 1;
 }
 
 .overlay-text {
   position: absolute;
   bottom: 0;
   background: none;
-  color: white; /* Or any color that works with your image */
+  color: white; 
   width: 100%;
   text-align: center;
   padding: 0.5em;
@@ -184,6 +198,7 @@ button:hover {
   font-weight: bold;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  z-index: 2;
 }
 
 .form-heading {
@@ -225,11 +240,11 @@ button:hover {
   border-radius: 6px;
   max-width: 800px;
   font-size: 1.1em;
-  color: #000; /* Ensure text is visible */
+  color: #000; 
 }
 
 main {
-  padding-bottom: 100px; /* space for footer */
+  padding-bottom: 100px; 
 }
 
 .products-note {
@@ -252,7 +267,261 @@ main {
   text-decoration: underline;
 }
 
+/* =========================
+   WEBSITE VISUAL UPGRADES
+========================= */
 
+/* Body */
+
+body {
+  background-color: #f6f3ee;
+  color: #1f1f1f;
+}
+
+/* Header */
+
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navigation */
+
+nav {
+  background-color: #1f5f3b;
+}
+
+nav a {
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+/* Logo */
+
+.logo img {
+  max-width: 170px;
+}
+
+/* Main content */
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em 1.5em 120px;
+}
+
+/* Headings */
+
+h1 {
+  font-size: 2.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+h2 {
+  margin-top: 1em;
+}
+
+.page-intro {
+  max-width: 850px;
+  margin: 1em auto 2em;
+  text-align: center;
+  font-size: 1.15em;
+  color: #444;
+}
+
+/* Footer */
+
+footer {
+  position: static;
+  background-color: #2f2f2f;
+  margin-top: 3em;
+}
+
+/* Buttons */
+
+button {
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+/* =========================
+   CARD STYLING
+========================= */
+
+.product,
+.service,
+.gallery-item,
+form,
+.cta,
+.products-note {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+}
+
+/* Product Cards */
+
+.product {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+}
+
+/* Images */
+
+.product img,
+.service img,
+.gallery-item img {
+  width: 100%;
+  display: block;
+}
+
+/* =========================
+   HOMEPAGE IMAGE OVERLAYS
+========================= */
+
+.image-overlay {
+  box-shadow: 0 5px 18px rgba(0,0,0,0.14);
+}
+
+.image-overlay {
+  position: relative;
+  width: 360px;
+  height: 500px; /* taller cards */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.image-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.overlay-text {
+  background: rgba(0,0,0,0.55);
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/* IMPORTANT FIX */
+
+.overlay-text {
+  font-family: inherit;
+}
+
+/* =========================
+   GALLERY PAGE
+========================= */
+
+.gallery-grid {
+  columns: 3 250px;
+  column-gap: 1.2em;
+  padding: 2em 0;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1.2em;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.gallery-item img {
+  border-radius: 14px;
+  transition: transform 0.35s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+/* Size variations */
+
+.gallery-item.tall img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.gallery-item.wide img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.gallery-item:not(.tall):not(.wide) img {
+  height: 350px;
+  object-fit: cover;
+}
+
+/* =========================
+   SERVICES PAGE
+========================= */
+
+.service {
+  padding: 1.5em;
+  margin-bottom: 2em;
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+form {
+  padding: 2em;
+}
+
+/* =========================
+   PRODUCTS PAGE
+========================= */
+
+.product {
+  padding: 1em;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  nav a {
+    display: block;
+    margin: 0.6em 0;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .image-overlay {
+    width: 95%;
+  }
+
+  .gallery-grid {
+    columns: 1;
+  }
+
+  main {
+    padding: 1em;
+  }
+}
 
 
 
